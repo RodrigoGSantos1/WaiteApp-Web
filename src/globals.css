@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F2F2F2;
+}
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #333333;
+  }
+} */
+
+/* Defina as classes utilitárias personalizadas */
+@layer utilities {
+  .bg-background {
+    background-color: var(--background);
+  }
+  .text-foreground {
+    color: var(--foreground);
+  }
+}
+
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  src: url('/src/pages/fonts/GeneralSans-Regular.ttf') format('ttf');
+}
+
+/* Estilo global */
+body {
+  @apply font-sans text-foreground bg-background;
+}
