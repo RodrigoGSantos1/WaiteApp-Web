@@ -20,13 +20,17 @@ export function Modal({ isOpen, onClose, children, title, icon }: IModal) {
         onClick={onClose}
       ></div>
 
-      <div className="relative z-10 min-w-[480px] w-11/12 max-w-md p-6 bg-white rounded-lg shadow-lg">
+      <div className="relative z-10 min-w-[480px] max-w-md p-6 bg-white rounded-lg shadow-lg">
         <div className="flex justify-between items-center mb-10">
           <div className="flex items-center">
             {icon && icon}
             <h4 className="text-h4 text-gray-900">{title}</h4>
           </div>
-          <CloseIcon className="text-gray-900" onClick={onClose} width={24} />
+          <CloseIcon
+            className="text-gray-700 cursor-pointer"
+            onClick={onClose}
+            width={24}
+          />
         </div>
         {children}
       </div>

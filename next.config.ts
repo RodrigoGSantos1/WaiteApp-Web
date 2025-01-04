@@ -22,10 +22,10 @@ const nextConfig: NextConfig = {
       },
     )
 
-    return config;
+    return config
   },
 }
 
 export default withBundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
-})(nextConfig);
+})(nextConfig)

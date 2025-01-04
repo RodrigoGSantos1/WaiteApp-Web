@@ -3,6 +3,7 @@ import { SideBarLayout } from '@/components/SideBarLayout'
 import { usePathname } from 'next/navigation'
 
 import '../globals.css'
+import { ToastContainer } from 'react-toastify'
 
 export default function RootLayout({
   children,
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body className="antialiased">
         {shouldShowSideBar && <SideBarLayout>{children}</SideBarLayout>}
         {!shouldShowSideBar && children}
+        <ToastContainer position="bottom-center" />
       </body>
     </html>
   )
