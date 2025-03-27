@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import { IOrder, IStatusCard } from '../@types/StatusCard'
+import { IStatusCard } from '../@types/StatusCard'
 import { Modal } from '../Modal'
 import { Button } from './Button'
 import Image from 'next/image'
 import pizzaImage from '@/assets/images/pizza.jpg'
 import { toast } from 'react-toastify'
+import { Iitems, IOrder } from '@/@types/getOrder'
 
 export function StatusCard({ icon, title, data }: IStatusCard) {
   const [isModalOpen, setModalOpen] = useState(false)
@@ -44,7 +45,7 @@ export function StatusCard({ icon, title, data }: IStatusCard) {
         </div>
         <div className="mb-10 w-full">
           <p className="text-small text-gray-900 opacity-80 mb-2">items</p>
-          {modalData?.items.map((obj, key) => (
+          {modalData?.items.map((obj: Iitems, key: number) => (
             <div key={key} className="mb-7 flex">
               <Image src={pizzaImage} alt="relogio" width={50} />
               <span className="text-small text-gray-500 ml-3">
@@ -102,7 +103,7 @@ export function StatusCard({ icon, title, data }: IStatusCard) {
           }}
           className="bg-white-100 w-full h-[128px] rounded-md border border-gray-300/40 flex flex-col items-center justify-center mt-5"
         >
-          <span className="text-medium">{obj.table}</span>
+          <span className="text-medium">Mesa {obj.table}</span>
           <p className="text-small text-gray-700">{obj.items.length} itens</p>
         </div>
       ))}

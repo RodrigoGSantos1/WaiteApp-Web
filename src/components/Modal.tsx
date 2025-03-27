@@ -8,9 +8,17 @@ export interface IModal {
   children: ReactNode
   title: string
   icon?: ReactNode
+  className?: string
 }
 
-export function Modal({ isOpen, onClose, children, title, icon }: IModal) {
+export function Modal({
+  isOpen,
+  onClose,
+  children,
+  title,
+  icon,
+  className,
+}: IModal) {
   if (typeof window === 'undefined' || !isOpen) return null
 
   return ReactDOM.createPortal(
@@ -18,9 +26,10 @@ export function Modal({ isOpen, onClose, children, title, icon }: IModal) {
       <div
         className="absolute inset-0 bg-black bg-opacity-50"
         onClick={onClose}
-      ></div>
-
-      <div className="relative z-10 min-w-[480px] max-w-md p-6 bg-white rounded-lg shadow-lg">
+      />
+      <div
+        className={`relative z-10 min-w-[480px] p-6 bg-white rounded-lg shadow-lg ${className}`}
+      >
         <div className="flex justify-between items-center mb-10">
           <div className="flex items-center">
             {icon && icon}
@@ -32,7 +41,7 @@ export function Modal({ isOpen, onClose, children, title, icon }: IModal) {
             width={24}
           />
         </div>
-        {children}
+        <div className="max-h-[90%] overflow-y-auto">{children}</div>
       </div>
     </div>,
     document.body,

@@ -1,5 +1,5 @@
 'use client'
-import { Modal, SideBar, Table } from '@/components'
+import { Modal, Table } from '@/components'
 import { useState } from 'react'
 import EyeIcon from '@/assets/icons/interface/eye.svg'
 import TrashIcon from '@/assets/icons/action/trash.svg'
@@ -7,8 +7,8 @@ import OrderIcon from '@/assets/icons/interface/order.svg'
 import Image from 'next/image'
 import pizzaImage from '@/assets/images/pizza.jpg'
 import { Button } from '@/components/UI'
-import { Iitems, IOrder } from '@/components/@types/StatusCard'
 import { ColumnDefinition } from '@/components/@types/Table'
+import { Iitems, IOrder } from '@/@types/getOrder'
 
 export default function History() {
   const [isModalOpen, setModalOpen] = useState(false)
@@ -180,7 +180,12 @@ export default function History() {
             >
               <EyeIcon />
             </button>
-            <button>
+            <button
+              onClick={() => {
+                setModalData(rowData)
+                openModal()
+              }}
+            >
               <TrashIcon />
             </button>
           </div>

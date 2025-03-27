@@ -13,6 +13,7 @@ export function Input({
   name,
   type,
   className,
+  icon,
   ...rest
 }: IInput) {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false)
@@ -45,6 +46,7 @@ export function Input({
             onClick={togglePasswordVisibility}
             className="absolute inset-y-0 right-3 flex items-center text-gray-500 hover:text-gray-700"
           >
+            {icon}
             {type === 'password' &&
               (isPasswordVisible ? (
                 <EyeHidden className={`${disabled && 'opacity-50'}`} />

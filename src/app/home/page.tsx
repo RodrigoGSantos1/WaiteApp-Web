@@ -9,7 +9,7 @@ import ChefImage from '@/assets/icons/category/cozinhando.png'
 import CheckImange from '@/assets/icons/category/check.png'
 import { Modal } from '@/components'
 import { useState } from 'react'
-import { IOrder } from '@/components/@types/StatusCard'
+import { IOrder } from '@/@types/getOrder'
 
 const mockData: IOrder[] = [
   {

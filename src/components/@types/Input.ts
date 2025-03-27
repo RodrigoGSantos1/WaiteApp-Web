@@ -1,3 +1,5 @@
+import { ReactNode } from 'react'
+
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string
   label: string
@@ -5,4 +7,5 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string
   password?: boolean
   disabled?: boolean
+  icon?: ReactNode
 }
